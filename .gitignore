@@ -1,0 +1,7 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Private local configuration
+assets/js/email-config.js

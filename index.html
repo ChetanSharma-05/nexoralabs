@@ -1,0 +1,1211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050914">
+
+  <title>NEXORA LABS | Enterprise AI & Digital Engineering</title>
+  <meta name="description" content="NEXORA LABS helps businesses build AI-powered applications, intelligent workflows, data solutions and modern digital platforms.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+  <script defer src="assets/js/gsap-enhance.js"></script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll("#company-impact .impact-card");
+
+  cards.forEach((card) => {
+    const heading = card.querySelector("h3");
+    const counter = card.querySelector(".counter");
+
+    if (!heading || !counter) return;
+
+    const title = heading.textContent.trim();
+
+    // Sirf Services aur Projects counters
+    if (
+  ![
+    "Services Delivered",
+    "Projects Delivered",
+    "Technologies",
+    "Commitment"
+  ].includes(title)
+) {
+  return;
+}
+
+    const target = Number(counter.dataset.target);
+    const suffix = counter.dataset.suffix || "";
+
+    if (!Number.isFinite(target) || target <= 0) return;
+
+    let started = false;
+
+    const startCounter = () => {
+      if (started) return;
+      started = true;
+
+      const duration = 1800;
+      const startTime = performance.now();
+
+      counter.textContent = "0";
+
+      function updateCounter(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(eased * target);
+
+        counter.textContent = value + (progress === 1 ? suffix : "");
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        }
+      }
+
+      requestAnimationFrame(updateCounter);
+    };
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          startCounter();
+          observer.disconnect();
+        }
+      }, { threshold: 0.2 });
+
+      observer.observe(card);
+    } else {
+      startCounter();
+    }
+  });
+});
+</script>
+</body>
+
+</head>
+
+<body class="home-page">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="NEXORA LABS home">
+        <span class="brand-mark">N</span>
+        <span>NEXORA<span class="brand-light"> LABS</span></span>
+      </a>
+
+      <button class="menu-toggle" aria-expanded="false"
+        aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">AI Solutions</a>
+       
+        <a href="projects.html">Our Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact Us ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO: ENTERPRISE AI -->
+   <!-- HOME PAGE IMAGE SLIDER -->
+<section class="home-slider-section">
+    <div class="home-slider">
+
+        <div class="slider-track">
+
+            <div class="slide active">
+                <img src="assets/images/web-design-1.jpg"
+                     alt="Modern UI UX Design">
+                <div class="slide-overlay">
+                    <span>CREATIVE DIGITAL SOLUTIONS</span>
+                    <h2>Designing Experiences<br>That Matter.</h2>
+                    <p>Creative UI/UX solutions for modern businesses.</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="assets/images/web-design-2.jpg"
+                     alt="Interactive Website Design">
+                <div class="slide-overlay">
+                    <span>INNOVATION THROUGH DESIGN</span>
+                    <h2>Ideas Into Digital<br>Experiences.</h2>
+                    <p>Building beautiful and user-friendly interfaces.</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="assets/images/web-design-3.jpg"
+                     alt="Modern Web Development">
+                <div class="slide-overlay">
+                    <span>BUILDING THE FUTURE</span>
+                    <h2>Technology Meets<br>Creativity.</h2>
+                    <p>Powerful websites built for tomorrow.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="slider-arrow prev" aria-label="Previous slide">
+            &#10094;
+        </button>
+
+        <button class="slider-arrow next" aria-label="Next slide">
+            &#10095;
+        </button>
+
+        <div class="slider-dots">
+            <button class="dot active" aria-label="Slide 1"></button>
+            <button class="dot" aria-label="Slide 2"></button>
+            <button class="dot" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="slider-counter">
+            <span class="current-slide">01</span>
+            <span class="counter-line"></span>
+            <span>03</span>
+        </div>
+
+    </div>
+</section>
+
+      <!-- Technology ecosystem, not client endorsements -->
+      
+    </section>
+
+
+<!-- COMPANY IMPACT / ANIMATED COUNTERS -->
+<section class="impact-section" id="company-impact">
+  <div class="container">
+
+    <div class="impact-heading impact-reveal">
+      <span class="section-label">OUR IMPACT</span>
+
+      <h2>
+        Ideas into
+        <span class="gradient-text">real-world impact.</span>
+      </h2>
+
+      <p>
+        We combine engineering, AI, and thoughtful design to build
+        digital solutions that help businesses move forward.
+      </p>
+    </div>
+
+    <div class="impact-grid">
+
+      <article class="impact-card impact-reveal">
+        <span class="impact-icon" aria-hidden="true">✦</span>
+        <div class="impact-number">
+          <span class="counter" data-target="24" data-suffix="+">0</span>
+        </div>
+        <h3>Services Delivered</h3>
+        <p>Digital capabilities built around real business needs.</p>
+      </article>
+
+      <article class="impact-card impact-reveal">
+        <span class="impact-icon" aria-hidden="true">◈</span>
+        <div class="impact-number">
+          <span class="counter" data-target="50" data-suffix="+">0</span>
+        </div>
+        <h3>Projects Delivered</h3>
+        <p>Solutions designed to turn ideas into working products.</p>
+      </article>
+
+      <article class="impact-card impact-reveal">
+        <span class="impact-icon" aria-hidden="true">⌘</span>
+        <div class="impact-number">
+          <span class="counter" data-target="12" data-suffix="+">0</span>
+        </div>
+        <h3>Technologies</h3>
+        <p>Modern tools and platforms powering our solutions.</p>
+      </article>
+
+      <article class="impact-card impact-reveal">
+        <span class="impact-icon" aria-hidden="true">↗</span>
+        <div class="impact-number">
+          <span class="counter" data-target="100" data-suffix="%">0</span>
+        </div>
+        <h3>Commitment</h3>
+        <p>A focus on quality, collaboration, and continuous improvement.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- INTRODUCTION -->
+
+        <section class="client-logos-section">
+    <div class="container">
+
+        <div class="client-logos-heading">
+            <span>OUR TECHNOLOGY ECOSYSTEM</span>
+            <h2>Platforms powering our solutions.</h2>
+            <p>Tools and technologies we use to build smarter digital experiences.</p>
+        </div>
+
+        <div class="logo-marquee">
+            <div class="logo-track">
+
+                <!-- First set -->
+                <div class="logo-item">
+                    <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google">
+                    <span>Google</span>
+                </div>
+
+                <div class="logo-item">
+                    <img src="https://cdn.simpleicons.org/microsoft/5E5E5E" alt="Microsoft">
+                    <span>Microsoft</span>
+                </div>
+
+                <div class="logo-item">
+                    <img src="https://cdn.simpleicons.org/amazon/FF9900" alt="Amazon">
+                    <span>Amazon</span>
+                </div>
+
+                <div class="logo-item">
+                    <img src="https://cdn.simpleicons.org/adobe/FF0000" alt="Adobe">
+                    <span>Adobe</span>
+                </div>
+
+                <div class="logo-item">
+                    <img src="https://cdn.simpleicons.org/shopify/7AB55C" alt="Shopify">
+                    <span>Shopify</span>
+                </div>
+
+                <div class="logo-item">
+                    <img src="https://cdn.simpleicons.org/stripe/635BFF" alt="Stripe">
+                    <span>Stripe</span>
+                </div>
+
+                <div class="logo-item">
+                    <img src="https://cdn.simpleicons.org/openai/412991" alt="OpenAI">
+                    <span>OpenAI</span>
+                </div>
+
+                <div class="logo-item">
+                    <img src="https://cdn.simpleicons.org/meta/0866FF" alt="Meta">
+                    <span>Meta</span>
+                </div>
+
+                <div class="logo-item">
+                    <img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma">
+                    <span>Figma</span>
+                </div>
+
+                <div class="logo-item">
+                    <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub">
+                    <span>GitHub</span>
+                </div>
+
+                <div class="logo-item">
+                    <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress">
+                    <span>WordPress</span>
+                </div>
+
+                <div class="logo-item">
+                    <img src="https://cdn.simpleicons.org/amazonaws/232F3E" alt="AWS">
+                    <span>AWS</span>
+                </div>
+
+                <!-- Duplicate set for seamless sliding -->
+                <div class="logo-item" aria-hidden="true">
+                    <img src="https://cdn.simpleicons.org/google/4285F4" alt="">
+                    <span>Google</span>
+                </div>
+
+                <div class="logo-item" aria-hidden="true">
+                    <img src="https://cdn.simpleicons.org/microsoft/5E5E5E" alt="">
+                    <span>Microsoft</span>
+                </div>
+
+                <div class="logo-item" aria-hidden="true">
+                    <img src="https://cdn.simpleicons.org/amazon/FF9900" alt="">
+                    <span>Amazon</span>
+                </div>
+
+                <div class="logo-item" aria-hidden="true">
+                    <img src="https://cdn.simpleicons.org/adobe/FF0000" alt="">
+                    <span>Adobe</span>
+                </div>
+
+                <div class="logo-item" aria-hidden="true">
+                    <img src="https://cdn.simpleicons.org/shopify/7AB55C" alt="">
+                    <span>Shopify</span>
+                </div>
+
+                <div class="logo-item" aria-hidden="true">
+                    <img src="https://cdn.simpleicons.org/stripe/635BFF" alt="">
+                    <span>Stripe</span>
+                </div>
+
+                <div class="logo-item" aria-hidden="true">
+                    <img src="https://cdn.simpleicons.org/openai/412991" alt="">
+                    <span>OpenAI</span>
+                </div>
+
+                <div class="logo-item" aria-hidden="true">
+                    <img src="https://cdn.simpleicons.org/meta/0866FF" alt="">
+                    <span>Meta</span>
+                </div>
+
+                <div class="logo-item" aria-hidden="true">
+                    <img src="https://cdn.simpleicons.org/figma/F24E1E" alt="">
+                    <span>Figma</span>
+                </div>
+
+                <div class="logo-item" aria-hidden="true">
+                    <img src="https://cdn.simpleicons.org/github/181717" alt="">
+                    <span>GitHub</span>
+                </div>
+
+                <div class="logo-item" aria-hidden="true">
+                    <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="">
+                    <span>WordPress</span>
+                </div>
+
+                <div class="logo-item" aria-hidden="true">
+                    <img src="https://cdn.simpleicons.org/amazonaws/232F3E" alt="">
+                    <span>AWS</span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <!-- AI SOLUTIONS -->
+    <!-- HOME FEATURE SHOWCASE -->
+<section class="home-features" id="solutions">
+
+    <div class="container">
+
+        <!-- FEATURE 1: TEXT LEFT, IMAGE RIGHT -->
+        <article class="feature-row">
+
+            <div class="feature-content reveal-left">
+                <span class="feature-label">01 / WEB DEVELOPMENT</span>
+
+                <h2>
+                    Fast, flexible
+                    <span>digital solutions.</span>
+                </h2>
+
+                <p>
+                    We create modern, responsive and scalable websites
+                    that help businesses build a strong digital presence.
+                    From frontend experiences to powerful backend systems,
+                    everything is designed around your needs.
+                </p>
+
+                <ul class="feature-list">
+                    <li>Responsive website development</li>
+                    <li>Modern UI/UX design</li>
+                    <li>Backend development and APIs</li>
+                    <li>Performance and optimization</li>
+                </ul>
+
+                <a href="services.html" class="feature-link">
+                    Explore solutions <span>↗</span>
+                </a>
+            </div>
+
+            <div class="feature-image reveal-right">
+                <img
+                    src="assets/images/web-design-5.jpg"
+                    alt="Web development and coding"
+                >
+            </div>
+
+        </article>
+
+
+        <!-- FEATURE 2: IMAGE LEFT, TEXT RIGHT -->
+        <article class="feature-row reverse">
+
+            <div class="feature-image reveal-left">
+                <img
+                    src="assets/images/web-design-4.jpg"
+                    alt="Artificial intelligence and technology"
+                >
+            </div>
+
+            <div class="feature-content reveal-right">
+                <span class="feature-label">02 / AI & AUTOMATION</span>
+
+                <h2>
+                    Smarter ideas.
+                    <span>Powered by AI.</span>
+                </h2>
+
+                <p>
+                    Transform your business processes with intelligent
+                    AI solutions and automation. We build practical
+                    technology that simplifies work, improves efficiency
+                    and helps businesses grow.
+                </p>
+
+                <ul class="feature-list">
+                    <li>Generative AI applications</li>
+                    <li>AI chatbots and assistants</li>
+                    <li>Intelligent workflow automation</li>
+                    <li>Data analytics and insights</li>
+                </ul>
+
+                <a href="services.html" class="feature-link">
+                    Explore solutions <span>↗</span>
+                </a>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+    <!-- CAPABILITY HIGHLIGHTS -->
+    <section class="section capability-showcase">
+      <div class="container capability-layout">
+
+        <div class="capability-copy reveal">
+          <div class="section-label">
+            <span>03 / OUR CAPABILITIES</span>
+          </div>
+
+          <h2>
+            Built around your goals.
+            <span class="gradient-text">Designed for change.</span>
+          </h2>
+
+          <p>
+            Strong digital solutions need more than a single
+            technology. We bring together complementary skills
+            to help teams move from a clearly defined problem
+            to a solution they can test, use and improve.
+          </p>
+
+          <a href="contact.html" class="button button-primary">
+            Discuss your project <span>↗</span>
+          </a>
+        </div>
+
+       <div class="capability-metrics">
+
+    <!-- CARD 1: AI -->
+    <article class="metric-card corner-reveal corner-top-left">
+        <div class="metric-image">
+            <img src="assets/images/web-design-6.jpg" alt="Artificial Intelligence">
+        </div>
+
+        <div class="metric-content">
+            <span class="metric-icon">✳</span>
+            <strong>AI</strong>
+            <h3>Intelligent experiences</h3>
+            <p>AI-powered features grounded in practical use cases.</p>
+        </div>
+    </article>
+
+    <!-- CARD 2: DATA -->
+    <article class="metric-card corner-reveal corner-top-right">
+        <div class="metric-image">
+            <img src="assets/images/web-design-7.jpg" alt="Data Engineering">
+        </div>
+
+        <div class="metric-content">
+            <span class="metric-icon">⌘</span>
+            <strong>Data</strong>
+            <h3>Connected information</h3>
+            <p>Structured data and workflows that support decisions.</p>
+        </div>
+    </article>
+
+    <!-- CARD 3: UX -->
+    <article class="metric-card corner-reveal corner-bottom-left">
+        <div class="metric-image">
+            <img src="assets/images/web-design-8.jpg" alt="UI UX Design">
+        </div>
+
+        <div class="metric-content">
+            <span class="metric-icon">◇</span>
+            <strong>UX</strong>
+            <h3>Human-centred products</h3>
+            <p>Useful experiences shaped around real user needs.</p>
+        </div>
+    </article>
+
+    <!-- CARD 4: SCALE -->
+    <article class="metric-card corner-reveal corner-bottom-right">
+        <div class="metric-image">
+            <img src="assets/images/web-design-9.jpg" alt="Cloud and Software Engineering">
+        </div>
+
+        <div class="metric-content">
+            <span class="metric-icon">↗</span>
+            <strong>Scale</strong>
+            <h3>Future-ready foundations</h3>
+            <p>Maintainable architecture designed to evolve.</p>
+        </div>
+    </article>
+
+</div>
+
+      </div>
+    </section>
+
+    <!-- WHY NEXORA LABS -->
+    <section class="section why-section">
+      <div class="container why-layout">
+        <div class="why-heading reveal">
+          <div class="section-label">
+            <span>04 / WHY NEXORA LABS</span>
+          </div>
+
+          <h2>
+            A thoughtful approach to
+            <span class="gradient-text">complex challenges.</span>
+          </h2>
+
+          <p>
+            We believe effective technology starts with understanding
+            the problem, making considered decisions and delivering
+            work that can stand up to real-world use.
+          </p>
+        </div>
+
+        <div class="why-grid">
+
+          <article class="why-card reveal">
+            <span class="why-icon">⌕</span>
+            <h3>Problem-first thinking</h3>
+            <p>
+              Understand the underlying challenge before
+              selecting a tool, platform or technical approach.
+            </p>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon">✳</span>
+            <h3>Practical AI adoption</h3>
+            <p>
+              Focus on meaningful use cases, appropriate
+              evaluation and useful outcomes.
+            </p>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon">⌘</span>
+            <h3>Integrated engineering</h3>
+            <p>
+              Connect frontend, backend, data and integrations
+              into a coherent digital solution.
+            </p>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon">◎</span>
+            <h3>Quality and maintainability</h3>
+            <p>
+              Build with testing, clarity and future
+              improvements in mind.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+   
+<section class="section industries-section">
+    <div class="container">
+
+        <!-- SECTION HEADING -->
+        <div class="section-heading reveal">
+            <div>
+                <div class="section-label">
+                    <span>05 / INDUSTRIES</span>
+                </div>
+
+                <h2>
+                    Digital solutions across
+                    <span class="gradient-text">different industries.</span>
+                </h2>
+            </div>
+
+            <p class="heading-note">
+                The right solution begins with understanding the
+                context, people and processes behind the challenge.
+            </p>
+        </div>
+
+
+        <!-- INDUSTRY GRID -->
+        <div class="industry-grid">
+
+            <!-- 01 HEALTHCARE -->
+            <article class="industry-card industry-reveal from-top-left">
+
+                <img
+                    class="industry-image"
+                    src="assets/images/web-design-14.jpg"
+                    alt="Healthcare and medical technology"
+                    loading="lazy"
+                >
+
+                <span class="industry-number">01</span>
+                <span class="industry-icon">✳</span>
+
+                <div class="industry-content">
+                    <h3>Healthcare</h3>
+                    <p>
+                        Information workflows, patient-facing
+                        experiences and operational tools.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 02 EDUCATION -->
+            <article class="industry-card industry-reveal from-top">
+
+                <img
+                    class="industry-image"
+                    src="assets/images/web-design-15.jpg"
+                    alt="Education and learning technology"
+                    loading="lazy"
+                >
+
+                <span class="industry-number">02</span>
+                <span class="industry-icon">⌘</span>
+
+                <div class="industry-content">
+                    <h3>Education</h3>
+                    <p>
+                        Learning platforms, assessment systems
+                        and digital administration.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 03 RETAIL -->
+            <article class="industry-card industry-reveal from-top-right">
+
+                <img
+                    class="industry-image"
+                    src="assets/images/web-design-16.jpg"
+                    alt="Retail and digital commerce"
+                    loading="lazy"
+                >
+
+                <span class="industry-number">03</span>
+                <span class="industry-icon">◇</span>
+
+                <div class="industry-content">
+                    <h3>Retail &amp; Commerce</h3>
+                    <p>
+                        Customer experiences, reporting and
+                        connected commerce workflows.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 04 FINANCE -->
+            <article class="industry-card industry-reveal from-bottom-left">
+
+                <img
+                    class="industry-image"
+                    src="assets/images/web-design-17.jpg"
+                    alt="Financial analytics and business dashboard"
+                    loading="lazy"
+                >
+
+                <span class="industry-number">04</span>
+                <span class="industry-icon">↗</span>
+
+                <div class="industry-content">
+                    <h3>Finance</h3>
+                    <p>
+                        Data workflows, reporting tools and process
+                        automation with appropriate controls.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 05 MANUFACTURING -->
+            <article class="industry-card industry-reveal from-bottom">
+
+                <img
+                    class="industry-image"
+                    src="assets/images/web-design-18.jpg"
+                    alt="Industrial manufacturing and automation"
+                    loading="lazy"
+                >
+
+                <span class="industry-number">05</span>
+                <span class="industry-icon">⬡</span>
+
+                <div class="industry-content">
+                    <h3>Manufacturing</h3>
+                    <p>
+                        Operational dashboards, data integration
+                        and workflow visibility.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 06 PROFESSIONAL SERVICES -->
+            <article class="industry-card industry-reveal from-bottom-right">
+
+                <img
+                    class="industry-image"
+                    src="assets/images/web-design-19.jpg"
+                    alt="Professional business workspace"
+                    loading="lazy"
+                >
+
+                <span class="industry-number">06</span>
+                <span class="industry-icon">✦</span>
+
+                <div class="industry-content">
+                    <h3>Professional Services</h3>
+                    <p>
+                        Document workflows, knowledge tools
+                        and productivity-focused applications.
+                    </p>
+                </div>
+
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- HOW WE WORK -->
+    <section class="section process-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <div class="section-label">
+              <span>06 / OUR APPROACH</span>
+            </div>
+            <h2>
+              Clear steps.<br>
+              <span class="gradient-text">Purposeful progress.</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="process-grid">
+
+          <article class="process-card reveal">
+            <span class="process-number">01</span>
+            <h3>Discover</h3>
+            <p>
+              Clarify goals, users, requirements, constraints
+              and the outcomes that matter.
+            </p>
+          </article>
+
+          <article class="process-card reveal">
+            <span class="process-number">02</span>
+            <h3>Design</h3>
+            <p>
+              Define the user experience, solution architecture
+              and delivery priorities.
+            </p>
+          </article>
+
+          <article class="process-card reveal">
+            <span class="process-number">03</span>
+            <h3>Build</h3>
+            <p>
+              Develop and test in focused iterations with
+              opportunities to review progress.
+            </p>
+          </article>
+
+          <article class="process-card reveal">
+            <span class="process-number">04</span>
+            <h3>Improve</h3>
+            <p>
+              Use feedback and observed performance to
+              refine the solution over time.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT SHOWCASE -->
+    <section class="section success-section">
+  <div class="container success-layout">
+
+    <!-- Left Side Content -->
+    <div class="success-intro reveal">
+      <div class="section-label">
+        <span>07 / PROJECT SHOWCASE</span>
+      </div>
+
+      <h2>
+        Ideas turned into
+        <span class="gradient-text">digital experiences.</span>
+      </h2>
+
+      <p>
+        Explore the kinds of challenges that can be addressed
+        with intelligent applications, integrated systems and
+        thoughtful product engineering.
+      </p>
+
+      <a href="projects.html" class="button button-primary">
+        Explore projects <span>↗</span>
+      </a>
+    </div>
+
+    <!-- Four Project Cards -->
+    <div class="success-cards">
+
+      <!-- Card 1: AI Knowledge Assistant -->
+      <article class="success-card corner-reveal from-top-left">
+
+        <div class="success-art art-ai">
+          <img
+            src="assets/images/web-design-10.jpg"
+            alt="AI Knowledge Assistant"
+            class="project-image"
+            loading="lazy"
+          >
+
+          <span class="art-label">INTELLIGENCE</span>
+        </div>
+
+        <div class="success-info">
+          <div>
+            <span class="project-category">CONCEPT / AI</span>
+
+            <h3>AI Knowledge Assistant</h3>
+
+            <p>
+              A concept for making organisational information
+              easier to find and use.
+            </p>
+          </div>
+
+          <a href="projects.html"
+             aria-label="Explore AI Knowledge Assistant">↗</a>
+        </div>
+
+      </article>
+
+
+      <!-- Card 2: Business Intelligence -->
+      <article class="success-card corner-reveal from-top-right">
+
+        <div class="success-art art-data">
+          <img
+            src="assets/images/web-design-11.jpg"
+            alt="Business Intelligence Dashboard"
+            class="project-image"
+            loading="lazy"
+          >
+
+          <span class="art-label">DATA / INSIGHTS</span>
+        </div>
+
+        <div class="success-info">
+          <div>
+            <span class="project-category">CONCEPT / ANALYTICS</span>
+
+            <h3>Business Intelligence</h3>
+
+            <p>
+              A concept dashboard for turning business data
+              into actionable insights.
+            </p>
+          </div>
+
+          <a href="projects.html"
+             aria-label="Explore Business Intelligence">↗</a>
+        </div>
+
+      </article>
+
+
+      <!-- Card 3: Intelligent Automation -->
+      <article class="success-card corner-reveal from-bottom-left">
+
+        <div class="success-art art-workflow">
+          <img
+            src="assets/images/web-design-12.jpg"
+            alt="Intelligent Automation Workflow"
+            class="project-image"
+            loading="lazy"
+          >
+
+          <span class="art-label">AUTOMATION</span>
+        </div>
+
+        <div class="success-info">
+          <div>
+            <span class="project-category">CONCEPT / WORKFLOWS</span>
+
+            <h3>Intelligent Automation</h3>
+
+            <p>
+              A concept for connecting routine tasks into
+              a more consistent workflow.
+            </p>
+          </div>
+
+          <a href="projects.html"
+             aria-label="Explore Intelligent Automation">↗</a>
+        </div>
+
+      </article>
+
+
+      <!-- Card 4: Digital Product Engineering -->
+      <article class="success-card corner-reveal from-bottom-right">
+
+        <div class="success-art art-ux">
+          <img
+            src="assets/images/web-design-13.jpg"
+            alt="Digital Product UI UX Design"
+            class="project-image"
+            loading="lazy"
+          >
+
+          <span class="art-label">DIGITAL EXPERIENCE</span>
+        </div>
+
+        <div class="success-info">
+          <div>
+            <span class="project-category">CONCEPT / UX</span>
+
+            <h3>Digital Product Engineering</h3>
+
+            <p>
+              A concept for building intuitive, responsive
+              and user-friendly digital products.
+            </p>
+          </div>
+
+          <a href="projects.html"
+             aria-label="Explore Digital Product Engineering">↗</a>
+        </div>
+
+      </article>
+
+    </div>
+  </div>
+</section>
+
+    <!-- TESTIMONIAL-STYLE COMPANY PRINCIPLES -->
+    <section class="section philosophy-section">
+      <div class="container philosophy-panel reveal">
+
+        <div class="philosophy-visual">
+          <div class="philosophy-orbit orbit-one"></div>
+          <div class="philosophy-orbit orbit-two"></div>
+          <div class="philosophy-core">N</div>
+          <span class="philosophy-caption">ENGINEER WITH PURPOSE</span>
+        </div>
+
+        <div class="philosophy-copy">
+          <span class="quote-mark" aria-hidden="true">“</span>
+
+          <div class="section-label">
+            <span>08 / OUR PHILOSOPHY</span>
+          </div>
+
+          <h2>
+            The best technology is not the most complicated.
+            It is the technology that solves the right problem.
+          </h2>
+
+          <p>
+            We believe strong digital products are created by
+            combining clear thinking, responsible engineering
+            and a genuine understanding of the people who use them.
+          </p>
+
+          <a href="about.html" class="text-link">
+            Learn about our approach <span>↗</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section">
+      <div class="container faq-layout">
+
+        <div class="faq-intro reveal">
+          <div class="section-label">
+            <span>09 / FAQs</span>
+          </div>
+
+          <h2>
+            Questions before
+            <span class="gradient-text">we begin?</span>
+          </h2>
+
+          <p>
+            Here are a few useful starting points for planning
+            a digital or AI project.
+          </p>
+        </div>
+
+        <div class="faq-list reveal">
+
+          <details class="faq-item">
+            <summary>What services does NEXORA LABS offer?</summary>
+            <p>
+              Our service areas include AI application development,
+              data engineering, software development, web experiences,
+              cloud-ready systems and workflow automation.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can you help define an idea before development?</summary>
+            <p>
+              Yes. Projects can start with discovery, requirements
+              clarification, solution planning and a defined scope
+              before implementation begins.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can AI be integrated into an existing application?</summary>
+            <p>
+              Depending on the application and requirements, AI
+              capabilities may be integrated through APIs, retrieval
+              systems or other suitable technical approaches.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How can I discuss a project?</summary>
+            <p>
+              Visit the contact page and share your goals, core
+              requirements, expected timeline and budget range.
+              This helps establish a useful starting point.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section final-cta-section">
+      <div class="container">
+        <div class="final-cta-panel reveal">
+          <div class="cta-glow" aria-hidden="true"></div>
+
+          <div class="section-label">
+            <span>10 / LET'S BUILD SOMETHING USEFUL</span>
+          </div>
+
+          <h2>
+            Your next idea<br>
+            <span class="gradient-text">starts here.</span>
+          </h2>
+
+          <p>
+            Tell us about the challenge you want to solve.
+            Let's explore the right digital solution together.
+          </p>
+
+          <a href="contact.html" class="button button-primary">
+            Start a conversation <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">N</span>
+          <span>NEXORA<span class="brand-light"> LABS</span></span>
+        </a>
+
+        <p>
+          AI, data and digital engineering for the challenges
+          that move businesses forward.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h2>Company</h2>
+        <a href="about.html">About us</a>
+        <a href="projects.html">Our work</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-column">
+        <h2>Solutions</h2>
+        <a href="services.html#generative-ai">Generative AI</a>
+        <a href="services.html#data-engineering">Data engineering</a>
+        <a href="services.html#automation">Automation</a>
+        <a href="services.html#cloud">Cloud solutions</a>
+      </div>
+
+      <div class="footer-column">
+        <h2>Get in touch</h2>
+        <a href="contact.html">Project inquiry ↗</a>
+        <a href="contact.html">Email us</a>
+      </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+      <p>
+        © <span id="current-year">2026</span> NEXORA LABS.
+        All rights reserved.
+      </p>
+      <a href="#main">Back to top ↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>
