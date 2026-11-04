@@ -5586,19 +5586,5 @@ summary:focus-visible {
 
 html,
 body {
-    background-color: #ece5eb !important;
-    overscroll-behavior-y: none !important;
-}
-
-
-html,
-body {
     background-color: #ece5eb;
-}
-
-/* Overscroll control only on actual mobile screens */
-@media (max-width: 768px) {
-    html {
-        overscroll-behavior-y: none;
-    }
 }
