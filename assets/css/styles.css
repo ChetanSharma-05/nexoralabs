@@ -5584,23 +5584,3 @@ summary:focus-visible {
 }
 
 
-/* Remove mobile overscroll color effect */
-html,
-body {
-    overscroll-behavior-y: none;
-    background: #ece5eb !important;
-}
-
-@media (max-width: 768px) {
-    html,
-    body {
-        overscroll-behavior: none;
-    }
-}
-
-@media (max-width: 768px) {
-    html,
-    body {
-        overscroll-behavior-y: none;
-    }
-}
