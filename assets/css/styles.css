@@ -5405,3 +5405,180 @@ summary:focus-visible {
         transform: none;
     }
 }
+
+
+/* ==========================================
+   NEXORA LABS - COMPACT MOBILE HERO
+========================================== */
+
+@media (max-width: 768px) {
+    .home-slider-section,
+    .home-slider {
+        height: 68vh !important;
+        min-height: 420px !important;
+        max-height: 560px;
+    }
+
+    .home-slider .slide-overlay {
+        left: 8%;
+        right: 8%;
+    }
+
+    .home-slider .slide-overlay h2 {
+        font-size: clamp(27px, 6vw, 34px);
+        line-height: 1.15;
+    }
+
+    .home-slider .slide-overlay p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-slider-section,
+    .home-slider {
+        height: 62vh !important;
+        min-height: 390px !important;
+        max-height: 460px;
+    }
+
+    .home-slider .slide-overlay h2 {
+        font-size: 29px;
+    }
+
+    .home-slider .slider-dots {
+        bottom: 18px;
+    }
+}
+
+
+/* ==========================================
+   MOBILE: IMAGE FIRST, TEXT SECOND
+   NEXORA LABS - HOME FEATURE SHOWCASE
+========================================== */
+
+@media (max-width: 700px) {
+
+    .home-features .feature-row,
+    .home-features .feature-row.reverse {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    /* Image always comes first */
+    .home-features .feature-row > .feature-image,
+    .home-features .feature-row.reverse > .feature-image {
+        order: 1 !important;
+        width: 100%;
+        height: 250px;
+    }
+
+    /* Explanation always comes below image */
+    .home-features .feature-row > .feature-content,
+    .home-features .feature-row.reverse > .feature-content {
+        order: 2 !important;
+        width: 100%;
+        padding: 8px 0;
+    }
+
+    .home-features .feature-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+/* =====================================
+   MOBILE HORIZONTAL OVERFLOW FIX
+===================================== */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    img,
+    video,
+    iframe {
+        max-width: 100%;
+    }
+
+    .container,
+    .section-padding {
+        max-width: 100%;
+    }
+
+    /* Prevent wide sections from extending viewport */
+    section,
+    header,
+    footer,
+    main {
+        max-width: 100%;
+    }
+}
+
+/* LIGHT THEME MOBILE SIDEBAR */
+
+@media (max-width: 760px) {
+
+    .nav-links,
+    #primary-nav {
+        background: #ece5eb !important;
+    }
+
+    .nav-links > a,
+    #primary-nav > a {
+        color: #342b36 !important;
+    }
+
+    .nav-links > a:hover,
+    #primary-nav > a:hover,
+    .nav-links > a.active,
+    #primary-nav > a.active {
+        background: #e3d7e4 !important;
+        color: #f03737 !important;
+    }
+
+    .menu-toggle {
+        background: #f8f3f7 !important;
+    }
+}
+
+
+/* MOBILE — INDUSTRY CARDS GAP FIX */
+
+@media (max-width: 600px) {
+
+    .industry-grid {
+        row-gap: 18px !important;
+        gap: 18px !important;
+    }
+
+    .industry-grid .industry-card {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Keep cards in their original positions */
+    .industry-grid .industry-reveal {
+        transform: none !important;
+        transition-delay: 0s !important;
+    }
+
+    .industry-grid .industry-reveal.industry-visible {
+        transform: none !important;
+    }
+}

@@ -3348,3 +3348,317 @@ body {
         transform: none;
     }
 }
+
+
+
+/* =========================================
+   SERVICES HERO — MOBILE GAP FIX
+========================================= */
+
+@media (max-width: 650px) {
+
+    .ai-hero {
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 95px 0 30px !important;
+        margin: 0 !important;
+        overflow: hidden;
+    }
+
+    .ai-hero-container {
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+    }
+
+    .ai-hero-content {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
+        transform: none !important;
+    }
+
+    .ai-hero-layout {
+        min-height: 0 !important;
+        height: auto !important;
+        padding-top: 0 !important;
+        padding-bottom: 20px !important;
+        gap: 12px !important;
+    }
+
+    .ai-hero-bottom {
+        margin-top: 20px !important;
+    }
+}
+
+
+/* =========================================
+   PRACTICAL AI — MOBILE IMAGE FIRST LAYOUT
+========================================= */
+
+@media (max-width: 650px) {
+
+    .practical-section .practical-row,
+    .practical-section .practical-row.reverse {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 22px !important;
+    }
+
+    /* Image always appears first */
+    .practical-section .practical-image {
+        order: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* Explanation always appears after image */
+    .practical-section .practical-content {
+        order: 2 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .practical-section .practical-image img {
+        display: block;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        object-fit: cover;
+    }
+}
+
+
+/* =========================================
+   ENTERPRISE AI — MOBILE ANIMATION FIX
+========================================= */
+
+@media (max-width: 650px) {
+
+    .enterprise-ai {
+        padding: 45px 0 !important;
+        overflow: hidden;
+    }
+
+    .enterprise-ai .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .enterprise-ai-panel {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 28px !important;
+        width: 100%;
+        padding: 28px 18px !important;
+        border-radius: 20px !important;
+        overflow: hidden;
+    }
+
+    .enterprise-ai-content {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .enterprise-ai-content h2 {
+        font-size: clamp(28px, 8vw, 35px) !important;
+        line-height: 1.2;
+    }
+
+    .enterprise-ai-content > p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .enterprise-ai-list li {
+        font-size: 13px;
+        gap: 9px;
+    }
+
+    .enterprise-ai-content .ai-btn {
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    /* AI animation container */
+    .enterprise-visual {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: 100% !important;
+        max-width: 290px !important;
+        min-height: 0 !important;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto !important;
+        transform: none !important;
+        overflow: visible;
+    }
+
+    /* Orbit animation */
+    .ai-orbit {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .orbit-one {
+        width: 90%;
+        height: 90%;
+    }
+
+    .orbit-two {
+        width: 70%;
+        height: 70%;
+    }
+
+    .orbit-three {
+        width: 48%;
+        height: 48%;
+    }
+
+    /* Center AI element */
+    .ai-core {
+        width: 88px !important;
+        height: 88px !important;
+        border-radius: 23px !important;
+    }
+
+    .ai-core span {
+        font-size: 29px !important;
+    }
+
+    .ai-core small {
+        font-size: 7px;
+    }
+
+    /* Orbit labels */
+    .orbit-node {
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 12px !important;
+        font-size: 11px !important;
+    }
+
+    .node-one {
+        top: 5%;
+        left: 43%;
+    }
+
+    .node-two {
+        top: 44%;
+        right: 0;
+    }
+
+    .node-three {
+        bottom: 5%;
+        left: 40%;
+    }
+
+    .node-four {
+        top: 43%;
+        left: 0;
+        font-size: 20px !important;
+    }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 380px) {
+
+    .enterprise-ai-panel {
+        padding: 24px 14px !important;
+    }
+
+    .enterprise-visual {
+        max-width: 250px !important;
+    }
+
+    .ai-core {
+        width: 78px !important;
+        height: 78px !important;
+    }
+
+    .orbit-node {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 10px !important;
+    }
+}
+
+
+/* =========================================
+   ENTERPRISE AI — MOBILE CONTENT CENTER
+========================================= */
+
+@media (max-width: 650px) {
+
+    .enterprise-ai-panel {
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .enterprise-ai-content {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .enterprise-ai-content h2 {
+        width: 100%;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .enterprise-ai-content > p {
+        width: 100%;
+        max-width: 340px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+    }
+
+    .enterprise-ai-list {
+        width: 100%;
+        max-width: 340px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .enterprise-ai-list li {
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    .enterprise-ai-content .button {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+
+@media (max-width: 650px) {
+    .enterprise-ai-content .ai-btn {
+        display: flex !important;
+        width: 326px !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+}
+

@@ -1450,3 +1450,142 @@
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ==========================================
+   ABOUT PAGE - MOBILE HORIZONTAL SCROLL FIX
+========================================== */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: clip !important;
+    }
+
+    .about-page {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: clip !important;
+    }
+
+    .about-page *,
+    .about-page *::before,
+    .about-page *::after {
+        box-sizing: border-box;
+    }
+
+    .about-page main,
+    .about-page main > section,
+    .about-page .container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .about-page img,
+    .about-page video,
+    .about-page iframe {
+        max-width: 100%;
+    }
+
+    /* Grid content should not force wider layout */
+    .about-story-grid,
+    .about-purpose-grid,
+    .about-values-grid,
+    .about-section-heading {
+        min-width: 0;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* Prevent decorative elements from expanding viewport */
+    .about-hero,
+    .about-purpose,
+    .about-cta-panel {
+        overflow: clip;
+    }
+}
+
+/* =========================================
+   ABOUT PAGE — COMPLETE MOBILE FIT
+========================================= */
+
+@media (max-width: 650px) {
+
+    .about-page {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: clip !important;
+    }
+
+    .about-page *,
+    .about-page *::before,
+    .about-page *::after {
+        box-sizing: border-box;
+    }
+
+    .about-page main,
+    .about-page main > section {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .about-page .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Headings */
+    .about-page h1,
+    .about-page h2,
+    .about-page h3 {
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    /* Paragraphs */
+    .about-page p {
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-break: normal;
+        line-height: 1.75;
+    }
+
+    /* Section layouts */
+    .about-story-grid,
+    .about-purpose-grid,
+    .about-values-grid {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    /* Cards */
+    .about-page .about-card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    /* Images */
+    .about-page img,
+    .about-page video {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Buttons and links */
+    .about-page a {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+}

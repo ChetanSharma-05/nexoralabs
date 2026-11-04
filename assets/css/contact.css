@@ -1135,3 +1135,89 @@
     outline: 3px solid #f03737;
     outline-offset: 3px;
 }
+
+/* =========================================
+   CONTACT PAGE — MOBILE HORIZONTAL OVERFLOW FIX
+========================================= */
+
+.contact-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+.contact-page *,
+.contact-page *::before,
+.contact-page *::after {
+    box-sizing: border-box;
+}
+
+.contact-page main,
+.contact-page main > section,
+.contact-page .container {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.contact-layout {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.35fr);
+    min-width: 0;
+}
+
+.contact-layout > *,
+.contact-info,
+.contact-form-wrap {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.contact-form,
+.contact-form .form-row,
+.contact-form .form-group {
+    min-width: 0;
+}
+
+.contact-page input,
+.contact-page select,
+.contact-page textarea {
+    max-width: 100%;
+}
+
+@media (max-width: 950px) {
+    .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .contact-page .contact-hero-content {
+        width: 100%;
+        min-width: 0;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .contact-page .contact-form-wrap {
+        padding: 26px 18px;
+    }
+
+    .contact-page .contact-info {
+        padding: 27px 18px;
+    }
+
+    /* Mobile par reveal animation horizontal overflow na banaye */
+    .contact-page.contact-js [data-animation="left"],
+    .contact-page.contact-js [data-animation="right"] {
+        transform: translateY(20px);
+    }
+
+    .contact-page.contact-js .contact-reveal.is-visible {
+        transform: none;
+    }
+
+    .contact-page .contact-cta-panel {
+        max-width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
