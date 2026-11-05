@@ -5588,3 +5588,8 @@ html,
 body {
     background-color: #ece5eb;
 }
+
+/* Hide Home Hero Slider Navigation Arrows */
+.home-slider .slider-arrow {
+    display: none !important;
+}
