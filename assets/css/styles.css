@@ -5593,3 +5593,227 @@ body {
 .home-slider .slider-arrow {
     display: none !important;
 }               
+
+
+
+
+/* ==========================================
+   HOME FEATURES — RESPONSIVE HEADING
+========================================== */
+
+.home-features-heading {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 65px;
+    padding: 38px 0;
+    border-bottom: 1px solid rgba(177, 200, 255, 0.16);
+
+    animation: homeHeadingReveal 0.9s ease both;
+}
+
+/* Small label */
+.home-features-heading .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    color: #8fa7d0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+}
+
+.home-features-heading .section-label::before {
+    content: "";
+    width: 25px;
+    height: 2px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #4388ff, #9564ff);
+}
+
+/* Main heading */
+.home-features-heading h2 {
+    max-width: 700px;
+    margin: 0;
+    color: #f8faff;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(34px, 4.5vw, 58px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -2px;
+}
+
+/* Gradient text */
+.home-features-heading h2 .gradient-text {
+    display: inline-block;
+    background: linear-gradient(
+        100deg,
+        #78bcff,
+        #9564ff,
+        #ff9b54
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: headingGradient 5s ease infinite;
+}
+
+/* Description */
+.home-features-heading .heading-note {
+    flex: 0 1 390px;
+    max-width: 390px;
+    margin: 0;
+    color: #a8b7cf;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* Heading entrance animation */
+@keyframes homeHeadingReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Gradient movement */
+@keyframes headingGradient {
+    0%, 100% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .home-features-heading {
+        gap: 25px;
+        margin-bottom: 48px;
+        padding: 30px 0;
+    }
+
+    .home-features-heading h2 {
+        font-size: clamp(32px, 5vw, 45px);
+    }
+
+    .home-features-heading .heading-note {
+        flex-basis: 320px;
+        font-size: 13px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .home-features-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 35px;
+        padding: 25px 0;
+    }
+
+    .home-features-heading .section-label {
+        margin-bottom: 13px;
+        font-size: 9px;
+        letter-spacing: 1.7px;
+    }
+
+    .home-features-heading h2 {
+        font-size: clamp(30px, 8vw, 39px);
+        line-height: 1.2;
+        letter-spacing: -1.3px;
+    }
+
+    .home-features-heading .heading-note {
+        max-width: 100%;
+        flex: none;
+        font-size: 13px;
+        line-height: 1.8;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 380px) {
+    .home-features-heading h2 {
+        font-size: 29px;
+    }
+
+    .home-features-heading {
+        margin-bottom: 28px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .home-features-heading,
+    .home-features-heading h2 .gradient-text {
+        animation: none;
+    }
+}
+
+
+
+/* ==========================================
+   HOME FEATURES HEADING — COLOR FIX
+========================================== */
+
+.home-features-heading {
+    border-bottom: 1px solid rgba(55, 40, 65, 0.14);
+}
+
+/* Section label */
+.home-features-heading .section-label {
+    color: #765b91 !important;
+}
+
+.home-features-heading .section-label::before {
+    background: linear-gradient(90deg, #7654d6, #f07865);
+}
+
+/* Main heading */
+.home-features-heading h2 {
+    color: #302638 !important;
+}
+
+/* Gradient heading */
+.home-features-heading h2 .gradient-text {
+    background: linear-gradient(
+        100deg,
+        #7952d6 0%,
+        #a45bc5 48%,
+        #ed795f 100%
+    ) !important;
+
+    background-size: 200% auto;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Description */
+.home-features-heading .heading-note {
+    color: #625969 !important;
+}
+
+/* Mobile readability */
+@media (max-width: 600px) {
+    .home-features-heading h2 {
+        color: #302638 !important;
+    }
+
+    .home-features-heading .heading-note {
+        color: #625969 !important;
+    }
+}
+
+
