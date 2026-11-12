@@ -3808,7 +3808,19 @@ html {
 .project-visual-four {
     background-image: url("../images/web-design-40.jpg") !important;
 }
+.project-visual-five {
+    background-image: url("../images/web-design-AI.jpg") !important;
+}
 
+.project-visual-six {
+    background-image: url("../images/web-design-import.jpg") !important;
+}
+.project-visual-seven{
+    background-image: url("../images/web-design-gst.jpg") !important;
+}
+.project-visual-eight {
+    background-image: url("../images/web-design-office.jpg") !important;
+}
 /* Dark overlay for readable labels */
 
 .work-project-visual::before {
@@ -6204,5 +6216,44 @@ html {
     .work-capabilities .capability-image-wrap,
     .work-capabilities .capability-content {
         opacity: 1 !important;
+    }
+}
+
+
+/* IMPACT ANIMATION - MOBILE SPACING FIX */
+@media (max-width: 768px) {
+
+    .impact-section {
+        min-height: auto !important;
+        height: auto !important;
+        padding: 25px 12px 25px !important;
+
+        display: block !important;
+        overflow: hidden;
+    }
+
+    .impact-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .impact-heading {
+        margin: 0 auto 5px !important;
+    }
+
+    .impact-stage {
+        width: 100% !important;
+        height: 340px !important;
+        max-width: 100% !important;
+
+        margin: 0 auto !important;
+        transform: none !important;
+    }
+
+    .impact-bottom {
+        margin-top: 5px !important;
+        padding-top: 15px;
+        gap: 12px;
+        justify-content: center;
     }
 }

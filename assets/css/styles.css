@@ -5544,7 +5544,7 @@ summary:focus-visible {
         color: #342b36 !important;
     }
 
-    .nav-links > a:hover,
+    .nav-links > a:hover,  
     #primary-nav > a:hover,
     .nav-links > a.active,
     #primary-nav > a.active {
@@ -5592,4 +5592,4 @@ body {
 /* Hide Home Hero Slider Navigation Arrows */
 .home-slider .slider-arrow {
     display: none !important;
-}
+}               
